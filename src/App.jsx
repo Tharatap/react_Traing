@@ -6,7 +6,11 @@ function App() {
       <header className="App-header">
         <img src="Octocat.png" className="App-logo" alt="logo" />
         <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
+          Tharatap  <span className="heart">♥️</span> React
+        </p>
+        <p>
+          สวัสดีครับ<br />
+          <a href="https://www.youtube.com/watch?v=Ntr8on06pZ8&list=RDNtr8on06pZ8&start_radio=1" target="_blank">เพลงดี</a>
         </p>
         <p className="small">
           Edit <code>src/App.jsx</code> and save to reload.

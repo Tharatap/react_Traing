@@ -1,0 +1,18 @@
+#email{
+    text-decoration: underline;
+}
+.box{
+    border: 3px solid rosybrown;
+}
+.yellow-bg{
+    background-color: yellow;
+}
+h1{
+    color: rgb(14, 102, 72);
+    border: 2px solid rebeccapurple;
+
+}
+h1:hover{ /*อีเว้นเมื่อเอาเมาส์ไปชี้จะเปลี่ยนสี*/
+    color: crimson;
+    background-color: darkblue;
+}

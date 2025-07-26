@@ -1,0 +1,109 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f8f5f2; /* สีพื้นหลังเบจ-ครีม */
+    color: #333;
+}
+
+.bmi-container {
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* เงาที่นุ่มนวล */
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    transition: transform 0.3s ease;
+}
+
+.bmi-container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    color: #3e603e; /* สีเขียวเข้มแบบมอส */
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+p {
+    color: #555;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin: 0.5rem 0 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #81c784; /* สีเขียวอ่อนลง */
+    box-shadow: 0 0 8px rgba(129, 199, 132, 0.4);
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 1rem;
+    background-color: #66bb6a; /* สีเขียวที่ดูเป็นธรรมชาติ */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(102, 187, 106, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #4caf50;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 187, 106, 0.6);
+}
+
+.result-section {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: #e8f5e9; /* พื้นหลังสีเขียวอ่อนมาก */
+    color: #3e603e;
+}
+
+.result-section h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.result-section p.bmi-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3e603e;
+}
+
+.bmi-image-container {
+    margin-top: 2rem;
+    /* การจัดวางภาพ */
+}
+
+.bmi-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
