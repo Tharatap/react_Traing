@@ -2,17 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 //import App from './App';
-import Hello from './Hello';
-import Counter from './Counter';
-import BMI from './BMI';
+//import Hello from './Hello';
+//import Counter from './Counter';
+//import BMI from './BMI';
 import reportWebVitals from './reportWebVitals';
+import Shop from './Shop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/*<Hello name = "Tharatap" age={19}/>
-    <Hello name = "Thanakorn"/>*/}
-    <BMI/>
+    <Shop/>
   </React.StrictMode>
 );
 

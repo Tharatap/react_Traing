@@ -1,109 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Comic Sans MS', 'Fredoka One', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f8f5f2; /* สีพื้นหลังเบจ-ครีม */
-    color: #333;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    overflow: hidden;
+    color: #222;
+    position: relative;
+}
+
+/* Background image overlay */
+body::before {
+    content: "";
+    position: absolute;
+    background: url('https://wallpaperaccess.com/full/514428.jpg') no-repeat center center/cover;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
 }
 
 .bmi-container {
-    background-color: #ffffff;
+    max-height: 90vh; /* สูงสุดไม่เกิน 90% ของหน้าจอ */
+    overflow-y: auto; 
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
     padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* เงาที่นุ่มนวล */
+    border-radius: 25px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
-    max-width: 450px;
+    max-width: 480px;
     width: 90%;
-    transition: transform 0.3s ease;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    border: 3px dashed #ff8a65;
+    transition: transform 0.4s ease;
 }
 
 .bmi-container:hover {
-    transform: translateY(-5px);
+    transform: scale(1.03);
 }
 
 h1 {
-    color: #3e603e; /* สีเขียวเข้มแบบมอส */
+    color: #d84315;
     margin-bottom: 1.5rem;
-    font-size: 2.5rem;
-    font-weight: 600;
-}
-
-p {
-    color: #555;
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-shadow: 2px 2px #ffd180;
 }
 
 input {
     width: calc(100% - 24px);
-    padding: 12px;
-    margin: 0.5rem 0 1.5rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
+    padding: 14px;
+    margin: 0.8rem 0;
+    border: 2px solid #ffccbc;
+    border-radius: 15px;
     font-size: 1.1rem;
-    background-color: #fcfcfc;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(to right, #fff3e0, #ffe0b2);
+    transition: all 0.3s ease;
 }
 
 input:focus {
     outline: none;
-    border-color: #81c784; /* สีเขียวอ่อนลง */
-    box-shadow: 0 0 8px rgba(129, 199, 132, 0.4);
+    border-color: #ff8a65;
+    box-shadow: 0 0 10px #ffccbc;
 }
 
 button {
     width: 100%;
     padding: 15px;
     margin-top: 1rem;
-    background-color: #66bb6a; /* สีเขียวที่ดูเป็นธรรมชาติ */
+    background: linear-gradient(to right, #ff6f61, #f06292);
     color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
+    border-radius: 15px;
+    font-size: 1.3rem;
     font-weight: bold;
     cursor: pointer;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(102, 187, 106, 0.4);
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 20px rgba(240, 98, 146, 0.4);
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #4caf50;
+    background: linear-gradient(to right, #f06292, #ff6f61);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(102, 187, 106, 0.6);
+    box-shadow: 0 8px 25px rgba(240, 98, 146, 0.6);
 }
 
 .result-section {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     padding: 2rem;
-    border-radius: 15px;
-    background-color: #e8f5e9; /* พื้นหลังสีเขียวอ่อนมาก */
-    color: #3e603e;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+    color: #01579b;
+    box-shadow: inset 0 0 10px #81d4fa;
+    font-weight: bold;
 }
 
 .result-section h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.8rem;
-    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 2rem;
 }
 
 .result-section p.bmi-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #3e603e;
+    font-size: 2.2rem;
+    color: #0277bd;
 }
 
 .bmi-image-container {
-    margin-top: 2rem;
-    /* การจัดวางภาพ */
+    margin-top: 1.5rem;
+    opacity: 0.95;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    max-height: 300px; /* ป้องกันใหญ่เกิน */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bmi-image-container img {
+     max-height: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: auto;
+    object-fit: contain; /* ปรับให้ภาพไม่บิดเบี้ยว */
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bmi-image-container:hover {
+    transform: scale(1.05);
 }
