@@ -1,8 +1,9 @@
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "./Shop.css";
+
 export default function Shop(){
-    const books = [
+    const [books,setBook] = useState( [
         { "id": 1, "title": "The Let Them Theory: A Life-Changing Tool That Millions of People Can't Stop Talking About", "author": "Mel Robbins", "image_url": "https://images-na.ssl-images-amazon.com/images/I/91I1KDnK1kL._AC_UL381_SR381,381_.jpg", "price": 11.69 },
         { "id": 2, "title": "Forgotten Home Apothecary : 250 Powerful Remedies at Your Fingertips", "author": "Dr. Nicole Apelian", "image_url": "https://images-na.ssl-images-amazon.com/images/I/91-E86oM2IL._AC_UL381_SR381,381_.jpg", "price": 37 },
         { "id": 3, "title": "Seven Things You Can't Say About China", "author": "Tom Cotton", "image_url": "https://images-na.ssl-images-amazon.com/images/I/81+mN748qkL._AC_UL381_SR381,381_.jpg", "price": 19.58 },
@@ -11,8 +12,23 @@ export default function Shop(){
         { "id": 6, "title": "I Wish Someone Had Told Me . . .: The Best Advice for Building a Great Career and a Meaningful Life", "author": "Dana Perino", "image_url": "https://images-na.ssl-images-amazon.com/images/I/81AOHbxGNfL._AC_UL254_SR254,254_.jpg", "price": 20.30 },
         { "id": 7, "title": "How to Giggle: A Guide to Taking Life Less Seriously", "author": "Hannah Berner", "image_url": "https://images-na.ssl-images-amazon.com/images/I/81rO3vvG1mL._AC_UL254_SR254,254_.jpg", "price": 20.29 },
         { "id": 8, "title": "Strangers in Time: A World War II Novel", "author": "David Baldacci", "image_url": "https://images-na.ssl-images-amazon.com/images/I/816QI0pfuRL._AC_UL254_SR254,254_.jpg", "price": 17.84 }
-    ];
-    
+    ]);
+    const url="https://fluffy-carnival-q7vxgrv44624pv5-5001.app.github.dev/books";
+    useEffect(()=>{
+        async function fetchData(){ {/*async กับ await ให้มันไปโหลดข้อมูลตรงอื่นในหน้าเว็บก่อนไม่ต้องรอข้อมูลจาก data base*/}
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    console.log("Sucessfully")
+                    const data = await response.json();
+                    setBook(data.books)
+                }else throw new Error('Failed to fetch data');
+            } catch (error) {
+                console.error("Error: ".error);
+            }
+        }
+        fetchData();
+    },[])
     const [query,SetQuery] = useState("");
     const [cart, setCart] = useState([]);
     const filterlist = books.filter(b=>b.author.toUpperCase().includes(query.toUpperCase())||b.title.toUpperCase().includes(query.toUpperCase()))
